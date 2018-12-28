@@ -1,4 +1,4 @@
-# javaPHP
+javaPHP
 
 java与php类比学习
 
@@ -279,6 +279,8 @@ echo $bicycle->cadence." ".$bicycle->speed." ".$bicycle->gear."\n";
 
 ### 3、类进阶
 
+> ✅
+
 ```java
 // java可以有多个构造函数，根据参数不同而生成的对象不同
 public class Rectangle {
@@ -303,7 +305,7 @@ public class Rectangle {
 
 ### 4、类嵌套
 
->
+> ✅
 
 ```php
 public class ShadowTest {
@@ -333,4 +335,198 @@ ShadowTest.this.x = 0
 ```
 
 ### 5、枚举
+
+> ✅
+
+```java
+public enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
+    THURSDAY, FRIDAY, SATURDAY 
+}
+```
+
+## 七、注解
+
+> ✅
+
+#### 1、替代注释
+
+```java
+public class Generation3List extends Generation2List {
+
+   // Author: John Doe
+   // Date: 3/17/2002
+   // Current revision: 6
+   // Last modified: 4/12/2004
+   // By: Jane Doe
+   // Reviewers: Alice, Bill, Cindy
+
+   // class code goes here
+}
+
+@interface ClassPreamble {
+   String author();
+   String date();
+   int currentRevision() default 1;
+   String lastModified() default "N/A";
+   String lastModifiedBy() default "N/A";
+   // Note use of array
+   String[] reviewers();
+}
+
+@ClassPreamble (
+   author = "John Doe",
+   date = "3/17/2002",
+   currentRevision = 6,
+   lastModified = "4/12/2004",
+   lastModifiedBy = "Jane Doe",
+   // Note array notation
+   reviewers = {"Alice", "Bob", "Cindy"}
+)
+public class Generation3List extends Generation2List {
+
+// class code goes here
+
+}
+```
+
+### 2、预定义注解
+
+- **@Deprecated**
+- **Override**
+- **@SuppressWarnings**
+- **@SafeVarargs**
+- **@FunctionalInterface**
+- **@Retention**
+- **@Documented**
+- **@Target**
+- **@Inherited**
+- **@Repeatable**
+
+## 八、接口和继承
+
+### 1、接口
+
+> ✅
+
+```java
+// java
+// 接口继承接口
+public interface GroupedInterface extends Interface1, Interface2, Interface3 {
+    // code
+}
+// 实现接口
+public class RectanglePlus implements Relatable {
+    // code
+}
+```
+
+```php
+// php
+interface GroupedInterface
+{
+    // code
+}
+class RectanglePlus implements Relatable
+{
+    // code
+}
+```
+
+### 2、继承
+
+> ⛔️
+
+```java
+// java
+public class Bicycle {
+    // code
+}
+public class MountainBike extends Bicycle {
+    // code
+}
+public class Pegasus extends Horse implements Flyer, Mythical {
+    // code
+}
+```
+
+```php
+// php
+class Bicycle {
+    // code
+}
+class MountainBike extends Bicycle {
+    // code
+}
+class Pegasus extends Horse implements Flyer, Mythical {
+    // code
+}
+```
+
+### 3、多态
+
+> ✅
+
+```java
+public class MountainBike extends Bicycle {
+    public void printDescription() {
+        // 实现多态
+        super.printDescription();
+        System.out.println("The " + "MountainBike has a" +
+            getSuspension() + " suspension.");
+    }
+}
+```
+
+### 4、对象作为超类
+
+> ✅
+
+- `protected Object clone() throws CloneNotSupportedException`
+
+- `public boolean equals(Object obj)`
+
+- `protected void finalize() throws Throwable`
+
+- `public int hashCode()`
+
+- `public String toString()`
+
+### 5、抽象方法
+
+> ⛔️
+
+```java
+public abstract class GraphicObject {
+   abstract void draw();
+}
+```
+
+```php
+abstract class GraphicObject {
+   abstract function draw();
+}
+```
+
+## 九、数字和字符串
+
+> Java是纯面向对象语言，所有都是类，一些数字和字符串操作都得使用类，而PHP中是函数❎
+
+### 1、数字类
+
+`Class Number`
+
+### 2、字符类
+
+`Class Character`
+
+### 3、字符串类
+
+`Class String`
+
+### 4、装箱和拆箱
+
+`todo`
+
+## 十、泛型
 
