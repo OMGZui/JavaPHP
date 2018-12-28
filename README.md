@@ -1,6 +1,6 @@
-javaPHP
+# JavaPHP
 
-java与php类比学习
+老板要求的Java和PHP类比学习
 
 ## 一、java是什么
 
