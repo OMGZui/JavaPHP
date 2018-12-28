@@ -54,7 +54,7 @@ public class HelloWorldAnonymousClasses {
         frenchGreeting.greetSomeone("Fred");
         spanishGreeting.greet();
     }
-    
+
     public static void main(String... args) {
         HelloWorldAnonymousClasses myApp = new HelloWorldAnonymousClasses();
         myApp.sayHello();

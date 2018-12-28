@@ -393,7 +393,7 @@ public class Generation3List extends Generation2List {
 ### 2、预定义注解
 
 - **@Deprecated**
-- **Override**
+- **@Override**
 - **@SuppressWarnings**
 - **@SafeVarargs**
 - **@FunctionalInterface**
@@ -469,8 +469,8 @@ class Pegasus extends Horse implements Flyer, Mythical {
 
 ```java
 public class MountainBike extends Bicycle {
+    // 通过重载实现多态
     public void printDescription() {
-        // 实现多态
         super.printDescription();
         System.out.println("The " + "MountainBike has a" +
             getSuspension() + " suspension.");
@@ -530,3 +530,41 @@ abstract class GraphicObject {
 
 ## 十、泛型
 
+> ✅
+
+### 1、为什么使用泛型
+
+```java
+// 普通写法 需要强制转换
+List list = new ArrayList();
+list.add("hello");
+String s = (String) list.get(0);
+
+// 泛型写法 不需要强制转换
+List<String> list = new ArrayList<String>();
+list.add("hello");
+String s = list.get(0);
+```
+
+### 2、泛型类型
+
+通常使用的类型变量名字：
+
+- E - Element (used extensively by the Java Collections Framework)
+- K - Key
+- N - Number
+- T - Type
+- V - Value
+- S,U,V etc. - 2nd, 3rd, 4th types
+
+## 十一、异常处理
+
+## 十二、基本输入输出
+
+## 十三、并发
+
+## 十四、平台环境
+
+## 十五、正则表达式
+
+## 十六、集合
