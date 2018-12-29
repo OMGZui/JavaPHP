@@ -559,12 +559,114 @@ String s = list.get(0);
 
 ## 十一、异常处理
 
+> ⛔️
+
+```php
+public class ListOfNumbers {
+
+    private List<Integer> list;
+    public static final int SIZE = 10;
+
+    public ListOfNumbers() {
+        list = new ArrayList<Integer>(SIZE);
+        for (int i = 0; i < SIZE; i++) {
+            list.add(new Integer(i));
+        }
+    }
+
+    public void writeList(){
+        PrintWriter out = null;
+        try {
+            System.out.println("Entered try statement");
+            out = new PrintWriter(new FileWriter("src/HelloWorldApp/OutFile.txt"));
+
+            for (int i = 0; i < SIZE; i++) {
+                out.println("Value at: " + i + " = " + list.get(i));
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.err.println("IndexOutOfBoundsException: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Caught IOException: " + e.getMessage());
+        } finally {
+            if (out != null) {
+                System.out.println("Closing PrintWriter");
+                out.close();
+            } else {
+                System.out.println("PrintWriter not open");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        ListOfNumbers numbers = new ListOfNumbers();
+        numbers.writeList();
+    }
+}
+
+```
+
+
+
 ## 十二、基本输入输出
+
+> ⛔️
+
+```java
+public class CopyBytes {
+    public static void main(String[] args) throws IOException {
+        FileInputStream in = null;
+        FileOutputStream out = null;
+
+        try {
+            in = new FileInputStream("src/HelloWorldApp/xanadu.txt");
+            out = new FileOutputStream("src/HelloWorldApp/outagain.txt");
+
+            int c;
+            while ((c = in.read()) != -1) {
+                out.write(c);
+            }
+        } finally {
+            if (in != null) {
+                in.close();
+            }
+            if (out != null) {
+                out.close();
+            }
+        }
+    }
+}
+
+```
 
 ## 十三、并发
 
-## 十四、平台环境
+> ✅
 
-## 十五、正则表达式
+### 1、线程对象
 
-## 十六、集合
+```java
+// 方法1
+public class HelloRunnable implements Runnable {
+    @Override
+    public void run() {
+        System.out.println("Hello from a thread!");
+    }
+
+    public static void main(String[] args) {
+        (new Thread(new HelloRunnable())).start();
+    }
+}
+// 方法2
+public class HelloThread extends Thread {
+
+    @Override
+    public void run() {
+        System.out.println("Hello from a thread!");
+    }
+
+    public static void main(String[] args) {
+        (new HelloThread()).start();
+    }
+}
+```
+
