@@ -13,6 +13,16 @@ public class Girl {
 
     private Integer age;
 
+    private Double money;
+
+    public Double getMoney() {
+        return money;
+    }
+
+    public void setMoney(Double money) {
+        this.money = money;
+    }
+
     public Girl() {
     }
 
