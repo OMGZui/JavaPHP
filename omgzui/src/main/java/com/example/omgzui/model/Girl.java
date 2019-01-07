@@ -59,13 +59,13 @@ public class Girl {
         this.age = age;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Girl{" +
-//                "id=" + id +
-//                ", cupSize='" + cupSize + '\'' +
-//                ", age=" + age +
-//                ", money=" + money +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "id=" + id +
+                ", cupSize='" + cupSize + '\'' +
+                ", age=" + age +
+                ", money=" + money +
+                '}';
+    }
 }
