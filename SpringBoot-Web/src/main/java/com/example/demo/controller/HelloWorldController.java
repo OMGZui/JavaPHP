@@ -1,4 +1,4 @@
-package com.example.demo.Controller;
+package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +17,7 @@ public class HelloWorldController {
     }
 
     @RequestMapping("/info")
-    public Map<String, String> getInfo(@RequestParam String name) {
+    public Map<String, String> getInfo(@RequestParam(value = "name", defaultValue = "zui") String name) {
         Map<String, String> map = new HashMap<>();
         map.put("name", name);
         return map;
